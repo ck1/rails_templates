@@ -2,16 +2,13 @@
 #  Rails application template I used to start the Famous weblog project
 #
 
-
 # Begin with a standard Rails project with RSpec and (optional) Cucumber support.
 load_template "http://github.com/ck1/rails_templates/raw/master/rspec.rb"
-
 
 
 # Ensure that required gems are in place.
 gem "aasm", :lib => false
 rake "gems:install", :sudo => true
-
 
 
 # Install all necessary plugins.
@@ -26,19 +23,15 @@ plugin 'role_requirement', :git => 'git://github.com/timcharper/role_requirement
 plugin 'tiny_mce_plus', :git => 'git://github.com/devon/tiny_mce_plus.git', :submodule => true
 plugin 'will_paginate', :git => 'git://github.com/mislav/will_paginate.git', :submodule => true
 
-rake "tiny_mce_plus:plugins"
-
 generate "acts_as_taggable_migration"
 generate "authenticated", "user session"
 generate "roles", "Role User"
 generate "tiny_mce_plus_migration"
 
 
-
 # Propagate DB changes.
 rake "db:migrate"
 rake "db:test:clone"
-
 
 
 # Update the Git repository.
